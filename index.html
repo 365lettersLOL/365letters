@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>365letters.LOL / One Day, One Note</title>
+  <link rel="icon" href="https://i.postimg.cc/JnLpPPnC/love-letter.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff5f7;
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #e63946;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #6c757d;
+      margin: 20px 0;
+    }
+
+    #countdown {
+      font-size: 1.1rem;
+      color: #495057;
+    }
+
+    .tag {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>365 Letters for You</h1>
+  <p>Nothing to see here. Yet. 💌</p>
+  <div id="countdown">Loading countdown...</div>
+  <div class="tag">365letters.lol, presented by K. M</div>
+
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date('2025-05-02T16:00:00Z');
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown').textContent = 'The moment has arrived.';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('countdown').textContent =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
